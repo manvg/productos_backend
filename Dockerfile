@@ -14,11 +14,11 @@ RUN mvn clean package
 
 FROM eclipse-temurin:22-jdk 
 
-COPY --from=buildstage /app/target/productos-0.0.1-SNAPSHOT.jar /app/productos.jar
+COPY --from=buildstage /app/target/productos_backend-0.0.1-SNAPSHOT.jar /app/productos_backend.jar
 
 COPY Wallet_QHKV1HXJX2PK6K3Q /app/wallet
 
 ENV TNS_ADMIN=/app/wallet
-EXPOSE 8083
+EXPOSE 8086
 
-ENTRYPOINT [ "java", "-jar","/app/productos.jar" ]
+ENTRYPOINT [ "java", "-jar","/app/productos_backend.jar" ]
