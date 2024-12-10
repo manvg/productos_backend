@@ -21,7 +21,7 @@ import com.microservicio.productos_backend.service.ProductoService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/productos")
+@RequestMapping("/api/productos")
 public class ProductoController {
     @Autowired
     private ProductoService productoService;
