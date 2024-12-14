@@ -8,5 +8,5 @@ import com.microservicio.productos_backend.model.entities.Producto;
 
 
 public interface ProductoRepository extends JpaRepository<Producto, Integer> {
-    Optional<Producto> findBycodigoProducto(String codigoProducto);
+    Optional<Producto> findByNombre(String nombre);
 }

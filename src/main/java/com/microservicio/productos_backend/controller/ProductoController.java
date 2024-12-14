@@ -43,7 +43,7 @@ public class ProductoController {
     //---------MÉTODOS POST---------//
     @PostMapping
     public ResponseEntity<Object> createProducto(@RequestBody @Valid Producto producto){
-        var validacionEmail = productoService.validarProductoPorCodigo(producto.getCodigoProducto());
+        var validacionEmail = productoService.validarProductoPorNombre(producto.getNombre());
         if (!validacionEmail.getStatus()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(validacionEmail);
         }

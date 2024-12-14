@@ -17,10 +17,10 @@ public class Producto {
     @Column(name = "id_producto")
     private int idProducto;
 
-    @Column(name = "codigo_producto")
+    @Column(name = "categoria")
     @NotNull
-    @Size(min = 2, max = 50, message = "Debe tener entre 2 y 50 caracteres")
-    private String codigoProducto;
+    @Size(min = 2, max = 50, message = "Debe tener entre 2 y 100 caracteres")
+    private String categoria;
 
     @Column(name = "nombre")
     @NotNull
@@ -32,22 +32,16 @@ public class Producto {
     @Size(min = 2, max = 250, message = "Debe tener entre 2 y 250 caracteres")
     private String descripcion;
 
-    @Column(name = "categoria")
-    @NotNull
-    @Size(min = 2, max = 50, message = "Debe tener entre 2 y 100 caracteres")
-    private String categoria;
-
     @Column(name = "precio")
     @NotNull
     private int precio;
 
+    @Column(name = "url_imagen")
+    private String urlImagen;
+
 
     public int getIdProducto() {
         return idProducto;
-    }
-
-    public String getCodigoProducto() {
-        return codigoProducto;
     }
 
     public String getNombre() {
@@ -66,12 +60,12 @@ public class Producto {
         return precio;
     }
 
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
+    public String getUrlImagen() {
+        return urlImagen;
     }
 
-    public void setCodigoProducto(String codigoProducto) {
-        this.codigoProducto = codigoProducto;
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
     }
 
     public void setNombre(String nombre) {
@@ -88,5 +82,9 @@ public class Producto {
 
     public void setPrecio(int precio) {
         this.precio = precio;
+    }
+
+    public void setUrlImagen(String urlImagen) {
+        this.urlImagen = urlImagen;
     }
 }

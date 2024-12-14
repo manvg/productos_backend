@@ -41,13 +41,13 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
-    public ResponseModel validarProductoPorCodigo(String email){
+    public ResponseModel validarProductoPorNombre(String nombre){
         String message = "";
         boolean status = false;
 
-        var existeEmail = productoRepository.findBycodigoProducto(email);
+        var existeEmail = productoRepository.findByNombre(nombre);
         if (!existeEmail.isEmpty()) {
-            message = "Ya existe un producto con el código '" + email+ "'";
+            message = "Ya existe un producto con el nombre '" + nombre+ "'";
         }else{
             message = "Puede continuar con la creación del producto.";
             status = true;
@@ -62,12 +62,12 @@ public class ProductoServiceImpl implements ProductoService {
         var productoExiste = productoRepository.findById(id);
         if (!productoExiste.isEmpty()) {
             Producto producto = productoExiste.get();
-            producto.setCodigoProducto(objProducto.getCodigoProducto());
             producto.setNombre(objProducto.getNombre());
             producto.setDescripcion(objProducto.getDescripcion());
             producto.setCategoria(objProducto.getCategoria());
             producto.setPrecio(objProducto.getPrecio());
             producto.setIdProducto(id);
+            producto.setUrlImagen(objProducto.getUrlImagen());
             //Actualizar producto
             productoRepository.save(producto);
             response = new ResponseModel(true, "Producto actualizado con éxito. Id: " + id);

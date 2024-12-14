@@ -9,7 +9,7 @@ import com.microservicio.productos_backend.model.entities.Producto;
 public interface ProductoService {
     List<Producto> getAllProductos();
     Optional<Producto> getProductoById(Integer id);
-    ResponseModel validarProductoPorCodigo(String codigoProducto);
+    ResponseModel validarProductoPorNombre(String nombre);
     ResponseModel createProducto(Producto usuario);
     ResponseModel updateProducto(Integer id, Producto producto);
     ResponseModel deleteProducto(Integer id);
