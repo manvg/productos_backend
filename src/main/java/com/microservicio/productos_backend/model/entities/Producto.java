@@ -13,6 +13,7 @@ import jakarta.validation.constraints.Size;
 @Table(name = "producto")
 public class Producto {
     @Id
+    
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_producto")
     private int idProducto;
